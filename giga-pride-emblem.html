@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Giga — Happy Pride</title>
+<style>
+  :root { color-scheme: dark; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 2.25rem; background: #0b0b10;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+
+  .emblem { position: relative; width: min(58vmin, 480px); aspect-ratio: 1; }
+
+  .gradient {
+    position: absolute; inset: 0; overflow: hidden;
+    -webkit-mask: var(--logo-mask) center / contain no-repeat;
+            mask: var(--logo-mask) center / contain no-repeat;
+  }
+
+  .mesh {
+    position: absolute; inset: -25%;
+    background: radial-gradient(circle at 50% 45%, #ffeef7 0%, #e9e2ff 100%);
+    filter: blur(45px) saturate(1.25);
+    animation: hue 26s linear infinite;
+  }
+  @keyframes hue { to { filter: blur(45px) saturate(1.25) hue-rotate(360deg); } }
+
+  .blob { position: absolute; width: 55%; aspect-ratio: 1; border-radius: 50%; }
+  .b1 { top: -5%;   left: 2%;   background: radial-gradient(circle, #ff9aa2 0%, transparent 65%); animation: d1 13s ease-in-out infinite alternate; }
+  .b2 { top: -4%;   right: -2%; background: radial-gradient(circle, #ffc89b 0%, transparent 65%); animation: d2 16s ease-in-out infinite alternate; }
+  .b3 { top: 30%;   right: -8%; background: radial-gradient(circle, #fff3a8 0%, transparent 65%); animation: d3 12s ease-in-out infinite alternate; }
+  .b4 { bottom: -6%; right: 8%; background: radial-gradient(circle, #a8e6c9 0%, transparent 65%); animation: d4 17s ease-in-out infinite alternate; }
+  .b5 { bottom: -8%; left: 2%;  background: radial-gradient(circle, #9ec5ff 0%, transparent 65%); animation: d5 14s ease-in-out infinite alternate; }
+  .b6 { top: 32%;   left: -8%;  background: radial-gradient(circle, #cdb4ff 0%, transparent 65%); animation: d6 15s ease-in-out infinite alternate; }
+  .b7 { top: 22%;   left: 22%;  width: 64%; background: radial-gradient(circle, #ffc6f2 0%, transparent 65%); animation: d7 19s ease-in-out infinite alternate; }
+
+  @keyframes d1 { to { transform: translate(34%, 26%)  scale(1.25); } }
+  @keyframes d2 { to { transform: translate(-30%, 24%) scale(1.15); } }
+  @keyframes d3 { to { transform: translate(-26%, -18%) scale(1.3); } }
+  @keyframes d4 { to { transform: translate(-22%, -30%) scale(1.2); } }
+  @keyframes d5 { to { transform: translate(30%, -22%) scale(1.25); } }
+  @keyframes d6 { to { transform: translate(26%, -14%) scale(1.15); } }
+  @keyframes d7 { to { transform: translate(-16%, 18%) scale(0.85); } }
+
+  .mark { display: none; }
+
+  .title { color: #fff; font-size: clamp(1.5rem, 4.5vmin, 2.5rem); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+  .caption { color: rgba(255,255,255,.85); font-size: 1.05rem; letter-spacing: .14em; text-transform: uppercase; }
+
+  @media (prefers-reduced-motion: reduce) { .mesh, .blob { animation: none; } }
+</style>
+</head>
+<body>
+
+<div class="title">Happy Pride</div>
+
+<div class="emblem">
+  <div class="gradient">
+    <div class="mesh">
+      <div class="blob b1"></div>
+      <div class="blob b2"></div>
+      <div class="blob b3"></div>
+      <div class="blob b4"></div>
+      <div class="blob b5"></div>
+      <div class="blob b6"></div>
+      <div class="blob b7"></div>
+    </div>
+  </div>
+  <svg class="mark" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Giga emblem">
+    <path d="M6.04048 1.5783C6.10287 1.78477 6.16725 1.99169 6.23438 2.19833C9.23185 11.425 16.0014 17.7744 22.3999 17.9782C20.3274 21.5749 16.4485 23.9984 12 23.9984C5.37273 23.9984 0.000187178 18.6249 0 11.9963C0 7.5374 2.43198 3.64793 6.04048 1.5783Z" fill="white"/>
+    <path d="M7.86541 1.66886C10.6627 10.2792 17.6235 15.8118 23.7379 14.4913C23.5816 15.2308 23.3577 15.9449 23.0721 16.6273C20.5884 16.7315 17.9199 15.7385 15.3857 13.736C12.111 11.1483 9.19963 6.9677 7.51491 1.78178C7.42648 1.50955 7.34326 1.23731 7.26349 0.965731C7.37707 0.916875 7.49225 0.871588 7.6076 0.826171C7.68792 1.10693 7.77412 1.3878 7.86541 1.66886Z" fill="white"/>
+    <path d="M9.2919 0.463955L9.49645 1.13938C11.8371 8.34377 18.114 12.7619 23.5163 11.0066C23.6609 10.9596 23.8032 10.9069 23.9435 10.8521C23.9791 11.2287 24 11.6104 24 11.9963C24 12.351 23.9811 12.7019 23.951 13.0488C21.3825 13.7978 18.4724 13.0795 15.7638 11.0375C12.9867 8.94334 10.5338 5.52509 9.14595 1.25337C9.05374 0.96948 8.96841 0.685254 8.88814 0.402166C9.00838 0.369958 9.12972 0.34121 9.25142 0.312677C9.26521 0.362953 9.27765 0.413666 9.2919 0.463955Z" fill="white"/>
+    <path d="M10.973 0.102805L11.1264 0.608842C12.8818 6.01259 17.9552 9.20765 22.4574 7.7445L22.8729 7.59535C22.957 7.56221 23.0387 7.52382 23.1211 7.48775C23.3799 8.12586 23.5859 8.79059 23.7326 9.47781C23.5264 9.56978 23.3169 9.65474 23.1009 9.72496C20.8935 10.4423 18.4097 9.93301 16.1335 8.3315C13.857 6.72924 11.8659 4.0746 10.777 0.722833C10.7072 0.507842 10.6426 0.292836 10.582 0.078302C10.7065 0.0636459 10.8314 0.0507662 10.957 0.0399497C10.9627 0.0606871 10.9672 0.082068 10.973 0.102805Z" fill="white"/>
+    <path d="M12.3494 0.0015974C16.7559 0.127663 20.5671 2.62678 22.5479 6.269C22.3822 6.34097 22.2136 6.40779 22.0408 6.46396C18.4552 7.62903 14.0069 5.11822 12.407 0.193359C12.3863 0.129709 12.3689 0.0651468 12.3494 0.0015974Z" fill="white"/>
+  </svg>
+</div>
+
+<div class="caption">Loud and proud for every voice</div>
+
+<script>
+  const svgMarkup = document.querySelector('.mark').outerHTML;
+  document.documentElement.style.setProperty(
+    '--logo-mask',
+    `url("data:image/svg+xml,${encodeURIComponent(svgMarkup)}")`
+  );
+</script>
+
+</body>
+</html>
